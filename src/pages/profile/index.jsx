@@ -74,9 +74,17 @@ export default function Profile() {
     return (
         <div className="profile-container">
             <header>
+                { pegarLarguraDaTela()<700? 
+                <div id="welcome">
+                    <img src={logoImg} alt="Be The Hero" />
+                    <span>Bem vinda, <b>{ongName}</b></span>
+                </div>
+                : 
+                <>
                 <img src={logoImg} alt="Be The Hero" />
                 <span>Bem vinda,{ongName}</span>
-
+                </>
+            }
                 <Link className="button" to="incidents/new">{pegarConteudo(conteudo)}</Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#e02041"></FiPower>

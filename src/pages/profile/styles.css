@@ -7,6 +7,27 @@
     list-style: none;
     grid-gap: 24px;
     }
+
+    .profile-container header span{
+        
+        margin-top: 1em;
+        font-size: 20px;
+    }
+    
+    .profile-container header img{
+        
+        height: 60px;
+    }
+
+    #welcome {
+        display:flex;
+        margin-top: 1em;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        margin-right: 5%; 
+    }
 }
 
 @media (min-width: 701px){
@@ -16,6 +37,15 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
     list-style: none;
+}
+
+.profile-container header span{
+    font-size: 20px;
+    margin-left: 24px;
+}
+
+.profile-container header img{
+    height: 64px;
 }
 }
 
@@ -34,14 +64,7 @@
     align-items: center;
 }
 
-.profile-container header span{
-    font-size: 20px;
-    margin-left: 24px;
-}
 
-.profile-container header img{
-    height: 64px;
-}
 
 .profile-container header a{
     width: 260px;
