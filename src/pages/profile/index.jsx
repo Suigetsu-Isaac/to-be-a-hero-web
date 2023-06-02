@@ -17,6 +17,23 @@ export default function Profile() {
     const ongId = localStorage.getItem('OngId');
 
     
+    let conteudo = "";
+
+    function pegarLarguraDaTela(){
+        let largura = window.screen.width;
+        return largura;
+    }
+
+    function pegarConteudo(conteudo){
+        
+        const lar = pegarLarguraDaTela();
+
+        if (lar <= 700){
+            return conteudo = "Cadastrar";
+        }
+        return conteudo = "Cadastrar novo Caso";
+    }   
+
     //retorna todos os casos
     useEffect(() => {
         api.get('profile', {
@@ -60,7 +77,7 @@ export default function Profile() {
                 <img src={logoImg} alt="Be The Hero" />
                 <span>Bem vinda,{ongName}</span>
 
-                <Link className="button" to="incidents/new">Cadastrar novo Caso</Link>
+                <Link className="button" to="incidents/new">{pegarConteudo(conteudo)}</Link>
                 <button onClick={handleLogout} type="button">
                     <FiPower size={18} color="#e02041"></FiPower>
                 </button>
