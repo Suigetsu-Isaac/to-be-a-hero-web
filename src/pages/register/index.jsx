@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import api from '../../services/api'
 import './styles.css';
 import logoImg from '../../assets-frontend/assets/logo.svg'
+import Modal from '../../components/Modal';
+
+
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -12,8 +15,18 @@ export default function Register() {
     const [whatsapp, setWhatsapp] = useState('');
     const [city, setCity] = useState('');
     const [uf, setUf] = useState('');
+    const [code,setCode] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const history = useHistory();
+    function handleModalClick(){
+        setIsModalOpen(true);
+    }
+
+    function handleCloseModal(){
+        setIsModalOpen(false);
+    }
+
+
     async function handleRegister(e){
         e.preventDefault();
 
@@ -36,10 +49,9 @@ export default function Register() {
         
        try{
         const response = await api.post('ongs', data);
+        setCode(response.data.id)
+        handleModalClick();
 
-        alert(`Seu ID de Acesso: ${response.data.id}`);
-
-        history.push('/');
        }catch(err){
             alert("Erro no Cadastro tente novamente");
        }
@@ -60,7 +72,7 @@ export default function Register() {
                     
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#E02041" />
-                        Não tenho cadastro
+                        Já tenho cadastro
                     </Link>
                 </section>
 
@@ -101,7 +113,10 @@ export default function Register() {
                     </div>
 
                     <button className="button" type="submit">Cadastrar</button>
+                    {isModalOpen && <Modal onClose={handleCloseModal} idCode={code}/>}
                 </form>
+
+
             </div>
         </div>
     );
