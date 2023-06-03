@@ -40,14 +40,15 @@ class Modal extends Component {
 
     return (
       <div className="modal">
-        <div className="modal-content">
-          <h2>Modal</h2>
-          <p>Seu ID de Acesso: </p>
+        <div className="modal-over">
+          <div className="modal-content">
+          <h2>Seu ID de Acesso:</h2>
           <pre id="code" onClick={this.handleCopyClick}>
             {idCode}
           </pre>
           {isCopied && <p>Código copiado!</p>}
-          <button onClick={onClose}>Fechar</button>
+          <button className='button' onClick={onClose}>Fechar</button>
+          </div>
         </div>
       </div>
     );
