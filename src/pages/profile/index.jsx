@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 import './styles.css'
-
+import pegarLarguraDaTela from '../../utils/pegarLarguraDaTela';
 import api from '../../services/api'
 import logoImg from '../../assets-frontend/assets/logo.svg'
 
@@ -19,10 +19,7 @@ export default function Profile() {
     
     let conteudo = "";
 
-    function pegarLarguraDaTela(){
-        let largura = window.screen.width;
-        return largura;
-    }
+   
 
     function pegarConteudo(conteudo){
         
