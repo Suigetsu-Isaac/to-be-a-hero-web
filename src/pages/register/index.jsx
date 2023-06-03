@@ -26,9 +26,12 @@ export default function Register() {
         setIsModalOpen(false);
     }
 
-
     async function handleRegister(e){
         e.preventDefault();
+
+        if (whatsapp.length <= 11 && whatsapp.length >=8){
+            setWhatsapp( "+55" + whatsapp)
+        }
 
         console.log({
             name,
@@ -58,9 +61,6 @@ export default function Register() {
     }
 
         
-
-      
-
     return (
         <div className="register-container">
             <div className="content">
@@ -91,6 +91,7 @@ export default function Register() {
                     />
 
                     <input 
+                        
                         placeholder="Whatsapp" 
                         value = {whatsapp}
                         onChange = { e => setWhatsapp(e.target.value) }
