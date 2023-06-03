@@ -1,21 +1,13 @@
 
 @media (max-width: 700px){
 
-
     .register-container{
     max-width: 700px;  
 }
 
     .register-container .content {
-    
     padding: 32px;
-    
-    
-    
-    
     flex-direction: column;
-    
-    
 }
 
 
