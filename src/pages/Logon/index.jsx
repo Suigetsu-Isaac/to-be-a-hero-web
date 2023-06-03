@@ -8,8 +8,7 @@ import './styles.css';
 import pegarLarguraDaTela from '../../utils/pegarLarguraDaTela';
 
 import logoImg from '../../assets-frontend/assets/logo.svg'
-import heroImg from '../../assets-frontend/assets/heroes.png'
-import heroImgMobile from '../../assets-frontend/assets/heroes-mobile.png'
+import heroImg from '../../assets-frontend/assets/heroes.png';
 
 export default function Logon() {
 
@@ -58,7 +57,7 @@ export default function Logon() {
          </form>
 
        </section>
-        { largura <866?  <img className='HeroesImage' src={heroImgMobile} alt="Heroes" srcSet=""/> 
+        { largura <700? "" 
         : 
        <img className='HeroesImage' src={heroImg} alt="Heroes" srcSet=""/>
       }
