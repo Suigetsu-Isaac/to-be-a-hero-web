@@ -5,12 +5,20 @@ import { FiLogIn } from 'react-icons/fi'
 import api from '../../services/api'
 import './styles.css';
 
+import pegarLarguraDaTela from '../../utils/pegarLarguraDaTela';
+
 import logoImg from '../../assets-frontend/assets/logo.svg'
 import heroImg from '../../assets-frontend/assets/heroes.png'
+import heroImgMobile from '../../assets-frontend/assets/heroes-mobile.png'
 
 export default function Logon() {
+
+
+
     const [id, setId] = useState('');
     const history = useHistory();
+
+    const largura = pegarLarguraDaTela();
 
    async function handleLogon(e){
       e.preventDefault()
@@ -50,8 +58,10 @@ export default function Logon() {
          </form>
 
        </section>
-
+        { largura <866?  <img className='HeroesImage' src={heroImgMobile} alt="Heroes" srcSet=""/> 
+        : 
        <img className='HeroesImage' src={heroImg} alt="Heroes" srcSet=""/>
+      }
     </div>
     );
 }
